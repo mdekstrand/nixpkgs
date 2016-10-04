@@ -109,6 +109,12 @@ in rec {
     type = "minimal";
     inherit system;
   });
+  
+  iso_network = forAllSystems (system: makeIso {
+    module = ./modules/installer/cd-dvd/installation-cd-network.nix;
+    type="minimal";
+    inherit system;
+  });
 
   iso_graphical = genAttrs [ "x86_64-linux" ] (system: makeIso {
     module = ./modules/installer/cd-dvd/installation-cd-graphical.nix;
