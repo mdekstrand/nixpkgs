@@ -31763,6 +31763,22 @@ EOF
     };
   };
 
+  webencodings = buildPythonPackage rec {
+    pname = "webencodings";
+    name = "${pname}-${version}";
+    version = "0.5";
+    src = pkgs.fetchurl {
+      url = "mirror://pypi/${builtins.substring 0 1 pname}/${pname}/${name}.tar.gz";
+      sha256 = "a5c55ee93b24e740fe951c37b5c228dccc1f171450e188555a775261cce1b904";
+    };
+
+    meta = {
+      homepage = "https://github.com/SimonSapin/python-webencodings";
+      license = licenses.bsd3;
+      description = "Character encoding aliases for legacy web content";
+    };
+  };
+
 });
 
 in fix' (extends overrides packages)
