@@ -13,7 +13,7 @@
     tmux
   ];
 
-  boot.initrd.availableModules = [ "vmw_pvscsi" ];
+  boot.initrd.availableKernelModules = [ "vmw_pvscsi" "xfs" ];
 
   services.openssh.startWhenNeeded = true;
   users.users.root.openssh.authorizedKeys.keys = [
